@@ -12,6 +12,6 @@ imshow(xp, 'Parent', ax)
 % y=round(y);
 ax.YLim = [0 size(xp,1)];
 ax.XLim = [0 size(xp,2)];
-h = drawpoint(ax);
+h = drawrectangle(ax);
 % [x,y]
 % fig.HandleVisibility = 'off';

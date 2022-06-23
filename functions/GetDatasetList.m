@@ -1,7 +1,7 @@
 function GetDatasetList(app)
     % get the dir information
     if app.DEBUG_MODE
-        app.image_path = '/home/fu/computer vision/TUM_Computer_Vision/dataset';
+        app.image_path = '/Users/will/TUM_Computer_Vision/dataset';
     else
         app.image_path = uigetdir();
     end
