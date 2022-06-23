@@ -1,6 +1,10 @@
 function GetDatasetList(app)
     % get the dir information
-    app.image_path = uigetdir();
+    if app.DEBUG_MODE
+        app.image_path = '/home/fu/computer vision/TUM_Computer_Vision/dataset';
+    else
+        app.image_path = uigetdir();
+    end
     dir_info = dir(app.image_path);
     dir_info = dir_info(~ismember({dir_info.name},{'.','..','.DS_Store'}));
     % get path list
