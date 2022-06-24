@@ -90,14 +90,16 @@ end;
 
 %%% Fix leftwall error begins
 
-if (leftrx(1) < lmargin)
+
+if (lmargin > 0)
+
     leftry(1) = round(find_line_y(vx,vy,leftrx(1),leftry(1),lmargin));
     leftrx(1) = lmargin;
     
     leftry(4) = round(find_line_y(vx,vy,leftrx(4),leftry(4),lmargin));
     leftrx(4) = lmargin;
-end
 
+end
 %%% Fix leftwall error ends
 
 
@@ -116,7 +118,7 @@ end;
 
 %%% fix rightwall error begins
 
-if( max(orx)>xmax )
+if( rmargin>0 )
     rightry(2) = round(find_line_y(vx,vy,rightrx(2),rightry(2), max(orx) -rmargin));
     rightrx(2) = max(orx) - rmargin;
     
@@ -131,3 +133,4 @@ end
 
 backrx = irx;
 backry = iry;
+end
