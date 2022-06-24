@@ -3,8 +3,8 @@ function DrawLines(app)
     ry = app.ry;
     irx = app.irx;
     iry = app.iry;
-    vx = app.VP(1);
-    vy = app.VP(2);
+    vx = app.VanishingPoint(1);
+    vy = app.VanishingPoint(2);
     
     % find where the line from VP thru inner rectangle hits the edge of image
     [ox,oy] = find_corner(vx,vy,irx(1),iry(1),0,0);
@@ -20,7 +20,7 @@ function DrawLines(app)
     
     % draw everything
     irx = round([rx(1) rx(2) rx(2) rx(1) rx(1)]);
-    iry =  round([ry(1) ry(1) ry(2) ry(2) ry(1)]);
+    iry =  round([ry(1) ry(1) ry(2) ry(2) ry(1)]);    
     plot(irx,iry,'b','Parent', app.UIAxes_2); 
     hold(app.UIAxes_2, 'on' );
     plot([vx irx(1)], [vy iry(1)], 'r-.','Parent', app.UIAxes_2);
