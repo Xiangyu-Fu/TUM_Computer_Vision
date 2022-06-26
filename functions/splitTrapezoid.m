@@ -1,4 +1,4 @@
-function cuttedImg = cutImg ( p1, p2, p3, p4, img)
+function Trapezoid = splitTrapezoid (img, p1, p2, p3, p4)
 
     % Upper left: p1
     % Upper right: p2
@@ -35,7 +35,7 @@ function cuttedImg = cutImg ( p1, p2, p3, p4, img)
 %     Warp the image
 
     [cuttedref,r] = imwarp(ref, tform, 'OutputView', RA);
-    cuttedImg = cuttedImg_square.*cuttedref;
+    Trapezoid = cuttedImg_square.*cuttedref;
 end
 
 

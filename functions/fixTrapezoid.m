@@ -1,4 +1,4 @@
-function result = getRect(p1, p2, p3, p4, img)
+function result = fixTrapezoid(img, p1, p2, p3, p4)
 
     % Upper left: p1
     % Upper right: p2
