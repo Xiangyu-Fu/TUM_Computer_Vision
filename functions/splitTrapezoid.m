@@ -10,7 +10,7 @@ function Trapezoid = splitTrapezoid (img, p1, p2, p3, p4)
     ymin = min([p1(2),p2(2),p3(2),p4(2)]);
     ymax = max([p1(2),p2(2),p3(2),p4(2)]);
 
-    cuttedImg_square = im2double(img(ymin:ymax, xmin:xmax, :));
+    cuttedImg_square = im2double(img(ymin+1:ymax, xmin+1:xmax, :));
     ref = ones(size(cuttedImg_square,1),size(cuttedImg_square,2),3);
 
     cutted_p1 = [p1(1)-xmin, p1(2)-ymin];

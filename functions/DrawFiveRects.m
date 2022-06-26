@@ -1,4 +1,4 @@
-function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin] = DrawFiveRects(app)
+function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = DrawFiveRects(app)
     [bim,bim_alpha,vx,vy,ceilrx,ceilry,floorrx,floorry,...
     leftrx,leftry,rightrx,rightry,backrx,backry,lmargin,rmargin,tmargin,bmargin] = ...
     TIP_get5rects(app);
@@ -60,15 +60,15 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin] = DrawFiveRects(app
     % return points corrdinates by defining the topleft of origin image as 0,0
     
 
-    p9 = [p9(1)+1 p9(2)+1];
-    p3 = [p3(1)+1 p3(2)+1];
-    p12 =[p12(1) p12(2)];
-    p6 = [p6(1) p6(2)];
-
-    p11 = [p11(1)+1 p11(2)+1];
-    p10 = [p10(1) p10(2)+1];
-    p4 = [p4(1) p4(2)];
-    p5 = [p5(1)+1 p5(2)+1];
+%     p9 = [p9(1)+1 p9(2)+1];
+%     p3 = [p3(1)+1 p3(2)+1];
+%     p12 =[p12(1) p12(2)];
+%     p6 = [p6(1) p6(2)];
+% 
+%     p11 = [p11(1)+1 p11(2)+1];
+%     p10 = [p10(1) p10(2)+1];
+%     p4 = [p4(1) p4(2)];
+%     p5 = [p5(1)+1 p5(2)+1];
 
     app.RealWall(1,:) = [app.RealWall(1,1) + lmargin, app.RealWall(1,2) + tmargin];
     app.RealWall(2,:) = [app.RealWall(2,1) + lmargin, app.RealWall(2,2) + tmargin];
