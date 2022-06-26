@@ -12,4 +12,4 @@ if (sum(([vx vy]-[x1 y1]).^2) > sum(([vx vy]-[x2 y2]).^2)),
 else
   x = x2;
   y = y2;
-end;
+end
