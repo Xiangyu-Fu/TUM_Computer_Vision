@@ -15,6 +15,9 @@ function result = fixTrapezoid(img, p1, p2, p3, p4)
     p3 = [p3(1)-xmin+1, p3(2)-ymin+1];
     p4 = [p4(1)-xmin+1, p4(2)-ymin+1];
 
+    xmax = xmax-xmin;
+    ymax = ymax-ymin;
+
 %     Create perspective transformation that warps the original 
 %     image coordinates to the trapezoid
 
