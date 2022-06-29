@@ -1,4 +1,4 @@
-function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = DrawFiveRects(app)
+function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,height, width] = DrawFiveRects(app)
     [bim,bim_alpha,vx,vy,ceilrx,ceilry,floorrx,floorry,...
     leftrx,leftry,rightrx,rightry,backrx,backry,lmargin,rmargin,tmargin,bmargin] = ...
     TIP_get5rects(app);
@@ -100,6 +100,7 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = D
 
     %%% for test
     figure(1);
+    
     imshow(bim);
 
     hold on;
@@ -111,6 +112,7 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = D
 
     plot(verticesPoints(:,1),verticesPoints(:,2), 'r*','MarkerSize',15);
     plot(wallPoints(:,1),wallPoints(:,2),'g*','MarkerSize',15);
+
     hold off;
 
 

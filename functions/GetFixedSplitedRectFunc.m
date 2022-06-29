@@ -5,7 +5,7 @@ function GetFixedSplitedRectFunc(app)
     
     % get 5 rects and all 13 points (without VP)
     % topleft of the original image is defined as [0,0] 
-    [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = DrawFiveRects(app); 
+    [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,height, width] = DrawFiveRects(app); 
     % draw 5 rects and also 
     % return 4 points (right and left wall points)
     
@@ -21,16 +21,16 @@ function GetFixedSplitedRectFunc(app)
     app.UITable_2.Data = array2table(app.Vertex);
     
     
-    app.UITable_3.RowName={'vp';'7'; '8'; '1'; '2'; '11'; '10'; '4'; '5';'9';'3';'12';'6'};
+    app.UITable_3.RowName={'vp'; 'eye'; '7'; '8'; '1'; '2'; '11'; '10'; '4'; '5';'9';'3';'12';'6'};
     
     vp(1) = app.VanishingPoint(1)+lmargin;
     vp(2) = app.VanishingPoint(2)+tmargin;
     
     [vp_3d, p7_3d, p8_3d, p1_3d, p2_3d, p11_3d,...
-        p10_3d, p4_3d, p5_3d, p9_3d, p3_3d, p12_3d, p6_3d] = get3D(...
-        vp, p7, p8, p1, p2, p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin);
+        p10_3d, p4_3d, p5_3d, p9_3d, p3_3d, p12_3d, p6_3d, eyep] = get3D(...
+        vp, p7, p8, p1, p2, p11, p10, p4, p5, p9, p3, p12, p6,height, width);
     
-    points_3d = [vp_3d; p7_3d; p8_3d; p1_3d; p2_3d; p11_3d;...
+    points_3d = [vp_3d; eyep; p7_3d; p8_3d; p1_3d; p2_3d; p11_3d;...
         p10_3d; p4_3d; p5_3d; p9_3d; p3_3d; p12_3d; p6_3d];
     
     app.UITable_3.Data = array2table(points_3d);
