@@ -15,6 +15,8 @@ function GetFixedSplitedRectFunc(app)
     p2 = app.RealWall(4,:);
     
     app.Vertex = [p1;p2;p3;p4;p5;p6;p7;p8;p9;p10;p11;p12];
+
+    app.UITable.Data = array2table(app.VanishingPoint);
     
     app.UITable_2.RowName={'1'; '2'; '3'; '4'; '5'; '6'; '7'; '8';'9';'10';'11';'12'};
     

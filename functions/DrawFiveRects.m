@@ -92,6 +92,7 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,heig
     app.RealWall(2,:) = [app.RealWall(2,1) + lmargin, app.RealWall(2,2) + tmargin];
     app.RealWall(3,:) = [app.RealWall(3,1) + lmargin, app.RealWall(3,2) + tmargin];
     app.RealWall(4,:) = [app.RealWall(4,1) + lmargin, app.RealWall(4,2) + tmargin];
+    app.VanishingPoint = [app.VanishingPoint(1) + lmargin, app.VanishingPoint(1) + tmargin];
     app.expandImage = bim;
 
 
