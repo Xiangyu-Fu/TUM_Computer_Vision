@@ -1,10 +1,10 @@
 function result = fixTrapezoid(img, p1, p2, p3, p4)
-
     % Upper left: p1
     % Upper right: p2
     % Lower right: p3
     % Lower left: p4
 
+    % get the normalized area
     xmin = min([p1(1),p2(1),p3(1),p4(1)]);
     xmax = max([p1(1),p2(1),p3(1),p4(1)]);
     ymin = min([p1(2),p2(2),p3(2),p4(2)]);
@@ -18,8 +18,8 @@ function result = fixTrapezoid(img, p1, p2, p3, p4)
     xmax = xmax-xmin;
     ymax = ymax-ymin;
 
-%     Create perspective transformation that warps the original 
-%     image coordinates to the trapezoid
+   % Create perspective transformation that warps the cutted rectangle (trapezoid)
+   % coordinates to the traget shape (with 4 vertices).
 
     movingPoints = [p1; p2; p3; p4];
     fixedPoints = [1 1; xmax 1; xmax ymax; 1 ymax];
@@ -28,12 +28,11 @@ function result = fixTrapezoid(img, p1, p2, p3, p4)
     tform = fitgeotrans(movingPoints, fixedPoints, 'Projective');
 
  
-%     Create a reference coordinate system where the extent is the size of the image
+    % Create a reference coordinate system where the extent is the size of the image
 
-    RA = imref2d([ymax xmax], ...
-        [1 xmax], [1 ymax]);
+    RA = imref2d([ymax xmax], [1 xmax], [1 ymax]);
 
-%     Warp the image
+    % Warp the image
 
     [result,r] = imwarp(img, tform, 'OutputView', RA);
 

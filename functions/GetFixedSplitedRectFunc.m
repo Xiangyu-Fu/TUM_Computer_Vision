@@ -40,31 +40,31 @@ function GetFixedSplitedRectFunc(app)
     
     
     app.Ceil = splitTrapezoid (app.expandImage, p9, p10, p8, p7);
-    %                 figure;
-    %                 imshow(app.Ceil);
+                    figure;
+                    imshow(app.Ceil);
     app.fixedCeil = fixTrapezoid (app.Ceil, p9, p10, p8, p7);
-    %                 figure;
-    %                 imshow(app.fixedCeil);
+                    figure;
+                    imshow(app.fixedCeil);
     
-    app.Floor = splitTrapezoid (app.expandImage, p1, p2, p4, p5);
-    %                 figure;
-    %                 imshow(app.Floor);
-    app.fixedFloor = fixTrapezoid (app.Floor, p1, p2, p4, p5);
-    %                 figure;
-    %                 imshow(app.fixedFloor);
-    % 
-    app.RightWall = splitTrapezoid (app.expandImage, p8, p10, p4, p2);
-    %                 figure;
-    %                 imshow(app.RightWall);
-    app.fixedRightWall = fixTrapezoid (app.RightWall, p8, p10, p4, p2);
-    %                 figure;
-    %                 imshow(app.fixedRightWall);
-    % 
+    app.Floor = splitTrapezoid (app.expandImage, p1, p2, p4, p3);
+                    figure;
+                    imshow(app.Floor);
+    app.fixedFloor = fixTrapezoid (app.Floor, p1, p2, p4, p3);
+                    figure;
+                    imshow(app.fixedFloor);
+    
+    app.RightWall = splitTrapezoid (app.expandImage, p8, p12, p6, p2);
+                    figure;
+                    imshow(app.RightWall);
+    app.fixedRightWall = fixTrapezoid (app.RightWall, p8, p12, p6, p2);
+                    figure;
+                    imshow(app.fixedRightWall);
+    
     app.LeftWall = splitTrapezoid (app.expandImage, p11, p7, p1, p5);
-    %                 figure;
-    %                 imshow(app.LeftWall);
+                    figure;
+                    imshow(app.LeftWall);
     app.fixedLeftWall = fixTrapezoid (app.LeftWall, p11, p7, p1, p5);
-    %                 figure;
-    %                 imshow(app.fixedLeftWall);
+                    figure;
+                    imshow(app.fixedLeftWall);
 
 end
