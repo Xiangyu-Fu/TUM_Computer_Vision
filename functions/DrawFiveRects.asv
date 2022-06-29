@@ -33,6 +33,28 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = D
     p4 = [orx(3)+lmargin ory(3)+tmargin];
     p5 = [orx(4)+lmargin ory(4)+tmargin];
 
+    if (lmargin > 0)
+
+%         p9(1) = round(find_line_x(vx,vy,leftrx(1),leftry(1), tmargin));
+%         p9(2) =  tmargin;
+
+        p12(1) = round(find_line_x(vx,vy,rightrx(2),rightry(2), tmargin ));
+        p12(2) =  tmargin;
+    
+        p6(1) = round(find_line_x(vx,vy,rightrx(3),rightry(3), max(floorry)));
+        p6(2) =   max(floorry);
+
+    elseif (rmargin > 0)
+
+        p9(1) = round(find_line_x(vx,vy,leftrx(1),leftry(1), tmargin));
+        p9(2) =  tmargin;
+    
+        p3(1) = round(find_line_x(vx,vy,leftrx(4),leftry(4), max(floorry)));
+        p3(2) =   max(floorry);
+
+    end
+
+
     if (p9(1) < lmargin)
         p9(1) = lmargin;
         p9(2) = round(find_line_y(vx,vy,leftrx(1),leftry(1), lmargin));
@@ -63,8 +85,13 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = D
         p6(2) = round(find_line_y(vx,vy,rightrx(3),rightry(3), p6(1) ));
     elseif (p6(2) > height - bmargin)
         p6(2) = height - bmargin;
-        p6(1) = round(find_line_x(vx,vy,rightrx(3),rightry(3), p6(2) ));
-    end
+        p6(2) = round(find_line_y(vx,vy,rightrx(3),rightry(3), p6(1) ));
+
+    
+
+
+
+    
 
     wallPoints = [p9;p3;p12;p6];
     verticesPoints = [p11;p10;p4;p5];
@@ -109,7 +136,7 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin] = D
     plot([leftrx leftrx(1)], [leftry leftry(1)], 'c-');
     plot([rightrx rightrx(1)], [rightry rightry(1)], 'g-');
 
-    plot(verticesPoints(:,1),verticesPoints(:,2), 'r*','MarkerSize',15);
+%     plot(verticesPoints(:,1),verticesPoints(:,2), 'r*','MarkerSize',15);
     plot(wallPoints(:,1),wallPoints(:,2),'g*','MarkerSize',15);
     hold off;
 
