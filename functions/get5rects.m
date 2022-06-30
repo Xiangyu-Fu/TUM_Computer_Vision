@@ -11,7 +11,7 @@
 % vanishing point (vx,vy) are also returned.
 function [big_im,big_im_alpha,vx,vy,ceilrx,ceilry,floorrx,floorry,...
     leftrx,leftry,rightrx,rightry,backrx,backry,lmargin,rmargin,tmargin,bmargin] = ...
-    TIP_get5rects(app);
+    get5rects(app)
 
 im = app.selected_image_data;
 vx = app.VanishingPoint(1);

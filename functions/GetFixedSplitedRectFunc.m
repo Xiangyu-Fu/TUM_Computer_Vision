@@ -25,8 +25,7 @@ function GetFixedSplitedRectFunc(app)
     
     app.UITable_3.RowName={'vp'; 'eye'; '7'; '8'; '1'; '2'; '11'; '10'; '4'; '5';'9';'3';'12';'6'};
     
-    vp(1) = app.VanishingPoint(1)+lmargin;
-    vp(2) = app.VanishingPoint(2)+tmargin;
+    vp = app.VanishingPoint;
     
     [vp_3d, p7_3d, p8_3d, p1_3d, p2_3d, p11_3d,...
         p10_3d, p4_3d, p5_3d, p9_3d, p3_3d, p12_3d, p6_3d, eyep] = get3D(...
@@ -41,30 +40,30 @@ function GetFixedSplitedRectFunc(app)
 %     app.RealWall = app.expandImage(p7(2):p1(2), p7(1):p8(1), :);  
 %     
 %     
-%     app.Ceil = splitTrapezoid (app.expandImage, p9, p10, p8, p7);
-%                     figure;
-%                     imshow(app.Ceil);
+    app.Ceil = splitTrapezoid (app.expandImage, p9, p10, p8, p7);
+                    figure;
+                    imshow(app.Ceil);
 %     app.fixedCeil = fixTrapezoid (app.Ceil, p9, p10, p8, p7);
 %                     figure;
 %                     imshow(app.fixedCeil);
-%     
-%     app.Floor = splitTrapezoid (app.expandImage, p1, p2, p4, p3);
-%                     figure;
-%                     imshow(app.Floor);
+    
+    app.Floor = splitTrapezoid (app.expandImage, p1, p2, p4, p3);
+                    figure;
+                    imshow(app.Floor);
 %     app.fixedFloor = fixTrapezoid (app.Floor, p1, p2, p4, p3);
 %                     figure;
 %                     imshow(app.fixedFloor);
-%     
-%     app.RightWall = splitTrapezoid (app.expandImage, p8, p12, p6, p2);
-%                     figure;
-%                     imshow(app.RightWall);
+    
+    app.RightWall = splitTrapezoid (app.expandImage, p8, p12, p6, p2);
+                    figure;
+                    imshow(app.RightWall);
 %     app.fixedRightWall = fixTrapezoid (app.RightWall, p8, p12, p6, p2);
 %                     figure;
 %                     imshow(app.fixedRightWall);
-%     
-%     app.LeftWall = splitTrapezoid (app.expandImage, p11, p7, p1, p5);
-%                     figure;
-%                     imshow(app.LeftWall);
+    
+    app.LeftWall = splitTrapezoid (app.expandImage, p11, p7, p1, p5);
+                    figure;
+                    imshow(app.LeftWall);
 %     app.fixedLeftWall = fixTrapezoid (app.LeftWall, p11, p7, p1, p5);
 %                     figure;
 %                     imshow(app.fixedLeftWall);
