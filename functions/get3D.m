@@ -70,7 +70,7 @@ function p_3d = trans_p9_12(p, eyep, height)
     
     grad = ( height - eyep(2) -1 ) / ( p(2) - eyep(2) );
     p_3d(1) = grad * ( p(1) - eyep(1) ) + eyep(1);
-    p_3d(2) = height;
+    p_3d(2) = height - 1;
     p_3d(3) = grad * ( -1 - eyep(3) ) + eyep(3);
 
 
