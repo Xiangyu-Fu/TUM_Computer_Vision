@@ -14,8 +14,10 @@ function [transVP_3, transP1_3, transP2_3, transP3_3, transP4_3, transP5_3,...
     vp, p7, p8, p1, p2, p11, p10, p4, p5, p9, p3, p12, p6,height, width);
 
     K = getKaliMatrix(p1_3d, p2_3d, vp_2d, p1_2d, p2_2d);
+    disp(K);
     
     [K_trans, RT] = getTransMatrix(theta, phi, z, K);
+    disp(K_trans);
     
     [transVP_3, transP1_3, transP2_3, transP3_3, transP4_3, transP5_3,...
     transP6_3, transP7_3, transP8_3, transP9_3, transP10_3, transP11_3,...
