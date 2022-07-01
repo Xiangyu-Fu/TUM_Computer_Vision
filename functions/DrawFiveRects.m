@@ -9,20 +9,20 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,heig
     [height, width, channel] = size(bim);
 
     % display the expended image
-    imshow(bim,'Parent', app.UIAxes_3);    
-    hold(app.UIAxes_3, 'on' );
+%     imshow(bim,'Parent', app.UIAxes_3);    
+%     hold(app.UIAxes_3, 'on' );
     % Here is one way to use the alpha channel (works for 3D plots too!)
     %%alpha(bim_alpha);
     
     % Draw the Vanishing Point and the 4 faces on the image
-    plot(vx,vy,'w*', 'Parent', app.UIAxes_3);
-
-
-    plot([ceilrx ceilrx(1)], [ceilry ceilry(1)], 'y-','Parent', app.UIAxes_3);
-    plot([floorrx floorrx(1)], [floorry floorry(1)], 'm-','Parent', app.UIAxes_3);
-    plot([leftrx leftrx(1)], [leftry leftry(1)], 'c-','Parent', app.UIAxes_3);
-    plot([rightrx rightrx(1)], [rightry rightry(1)], 'g-','Parent', app.UIAxes_3);
-    
+%     plot(vx,vy,'w*', 'Parent', app.UIAxes_3);
+% 
+% 
+%     plot([ceilrx ceilrx(1)], [ceilry ceilry(1)], 'y-','Parent', app.UIAxes_3);
+%     plot([floorrx floorrx(1)], [floorry floorry(1)], 'm-','Parent', app.UIAxes_3);
+%     plot([leftrx leftrx(1)], [leftry leftry(1)], 'c-','Parent', app.UIAxes_3);
+%     plot([rightrx rightrx(1)], [rightry rightry(1)], 'g-','Parent', app.UIAxes_3);
+%     
 
     p9 = [leftrx(1) leftry(1)];
     p3 = [leftrx(4) leftry(4)];
@@ -69,10 +69,10 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,heig
 
     wallPoints = [p9;p3;p12;p6];
     verticesPoints = [p11;p10;p4;p5];
-
-    plot(verticesPoints(:,1),verticesPoints(:,2), 'r*','MarkerSize',15,'Parent', app.UIAxes_3);
-    
-    plot(wallPoints(:,1),wallPoints(:,2),'g*','MarkerSize',15,'Parent', app.UIAxes_3)
+% 
+%     plot(verticesPoints(:,1),verticesPoints(:,2), 'r*','MarkerSize',15,'Parent', app.UIAxes_3);
+%     
+%     plot(wallPoints(:,1),wallPoints(:,2),'g*','MarkerSize',15,'Parent', app.UIAxes_3)
 
 
 
@@ -96,27 +96,27 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,heig
     app.VanishingPoint = [app.VanishingPoint(1) + lmargin, app.VanishingPoint(2) + tmargin];
     app.expandImage = bim;
 
-
-    hold(app.UIAxes_2, 'off' );
-
-
-    %%% for test
-    figure(1);
+% 
+%     hold(app.UIAxes_2, 'off' );
+% 
+% 
+%     %%% for test
+%     figure(1);
     
-    imshow(bim);
-
-    hold on;
-    plot(vx,vy,'w*');
-    plot([ceilrx ceilrx(1)], [ceilry ceilry(1)], 'y-');
-    plot([floorrx floorrx(1)], [floorry floorry(1)], 'm-');
-    plot([leftrx leftrx(1)], [leftry leftry(1)], 'c-');
-    plot([rightrx rightrx(1)], [rightry rightry(1)], 'g-');
-
-    plot(verticesPoints(:,1),verticesPoints(:,2), 'r*','MarkerSize',15);
-    plot(wallPoints(:,1),wallPoints(:,2),'g*','MarkerSize',15);
-
-    hold off;
-
+%     imshow(bim);
+% 
+%     hold on;
+%     plot(vx,vy,'w*');
+%     plot([ceilrx ceilrx(1)], [ceilry ceilry(1)], 'y-');
+%     plot([floorrx floorrx(1)], [floorry floorry(1)], 'm-');
+%     plot([leftrx leftrx(1)], [leftry leftry(1)], 'c-');
+%     plot([rightrx rightrx(1)], [rightry rightry(1)], 'g-');
+% 
+%     plot(verticesPoints(:,1),verticesPoints(:,2), 'r*','MarkerSize',15);
+%     plot(wallPoints(:,1),wallPoints(:,2),'g*','MarkerSize',15);
+% 
+%     hold off;
+% 
 
 
 

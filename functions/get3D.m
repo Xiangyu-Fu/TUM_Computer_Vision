@@ -3,10 +3,7 @@
 
 function [vp_3d, p7_3d, p8_3d, p1_3d, p2_3d, p11_3d,...
     p10_3d, p4_3d, p5_3d, p9_3d, p3_3d, p12_3d, p6_3d, eyep] = get3D(...
-    vp, p7, p8, p1, p2, p11, p10, p4, p5, p9, p3, p12, p6,height, width)
-
-
-
+    vp, p7, p8, p1, p2, p11, p10, p4, p5, p9, p3, p12, p6, height, width)
 
     [vp, p7, p8, p1, p2, p11, p10, p4, p5, p9, p3, p12, p6] =...
     recoord(vp, p7, p8, p1, p2, p11, p10, p4, p5, p9, p3, p12, p6, height, width);
