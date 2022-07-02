@@ -57,7 +57,7 @@ function GetFixedSplitedRectFunc(app)
     app.RightWall = splitTrapezoid (app.expandImage, p8, p12, p6, p2);
 %                     figure;
 %                     imshow(app.RightWall);
-% %     app.fixedRightWall = fixTrapezoid (app.RightWall, p8, p12, p6, p2);
+% % %     app.fixedRightWall = fixTrapezoid (app.RightWall, p8, p12, p6, p2);
 % %                     figure;
 % %                     imshow(app.fixedRightWall);
 %     
