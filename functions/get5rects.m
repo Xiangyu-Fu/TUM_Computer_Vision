@@ -1,17 +1,11 @@
-% Computational Photography
-% Project 6, Sample code by Alyosha Efros (likely buggy!)
-%
-% Tour Into The Picture helper code
-%
+
 % Given the 5 user-speficied points, this function expands the image to
 % make sure that each "face" of the box is a proper rectangle.  It returns
 % the 5 faces of the box (ceiling,floor,left,right and back). They are
 % encoded clockwise (upper-left, upper-right, lower-right,lower-left).
 % The new (bigger) image and its alhpa mask as well as the new 
 % vanishing point (vx,vy) are also returned.
-function [big_im,big_im_alpha,vx,vy,ceilrx,ceilry,floorrx,floorry,...
-    leftrx,leftry,rightrx,rightry,backrx,backry,lmargin,rmargin,tmargin,bmargin] = ...
-    get5rects(app)
+function [big_im,vx,vy,lmargin,rmargin,tmargin,bmargin] = get5rects(app)
 
 im = app.selected_image_data;
 vx = app.VanishingPoint(1);
@@ -129,8 +123,4 @@ end
 
 %%% fix rightwall error ends
 
-
-
-backrx = irx;
-backry = iry;
 end

@@ -1,12 +1,9 @@
-function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,height, width] = DrawFiveRects(app)
+function [p11, p10, p4, p5, p9, p3, p12, p6] = DrawFiveRects(app)
     
-    [bim,bim_alpha,vx,vy,ceilrx,ceilry,floorrx,floorry,...
-    leftrx,leftry,rightrx,rightry,backrx,backry,lmargin,rmargin,tmargin,bmargin] = ...
-    get5rects(app);
+    [bim,vx,vy,lmargin,rmargin,tmargin,bmargin] = get5rects(app);
 
-    [orx,ory] = get4vertices(app);
 
-    [height, width, channel] = size(bim);
+    [height, width, ~] = size(bim);
 
     app.RearWall(1,:) = [app.RearWall(1,1) + lmargin, app.RearWall(1,2) + tmargin];
     app.RearWall(2,:) = [app.RearWall(2,1) + lmargin, app.RearWall(2,2) + tmargin];
@@ -40,29 +37,6 @@ function [p11, p10, p4, p5, p9, p3, p12, p6,lmargin,rmargin,tmargin,bmargin,heig
     p5(1) = lmargin;
     p5(2) = round(find_line_y(vx,vy,app.RearWall(3,1),app.RearWall(3,2), p5(1) ));
 
-
-
-    top_bottomPoints = [p9;p10;p3;p4];
-    left_rightPoints = [p11;p12;p5;p6];
-
-%     %%% for test
-    figure(1);
-    
-    imshow(bim);
-
-    hold on;
-    plot(vx,vy,'w*');
-    plot([ceilrx ceilrx(1)], [ceilry ceilry(1)], 'y-');
-    plot([floorrx floorrx(1)], [floorry floorry(1)], 'm-');
-    plot([leftrx leftrx(1)], [leftry leftry(1)], 'c-');
-    plot([rightrx rightrx(1)], [rightry rightry(1)], 'g-');
-
-    plot(top_bottomPoints(:,1),top_bottomPoints(:,2), 'r*','MarkerSize',15);
-    plot(left_rightPoints(:,1),left_rightPoints(:,2),'g*','MarkerSize',15);
-
-    hold off;
-
-    %%% test ends
 
 end
  
