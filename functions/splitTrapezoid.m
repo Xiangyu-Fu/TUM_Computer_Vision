@@ -11,7 +11,7 @@ function Trapezoid = splitTrapezoid (img, p1, p2, p3, p4)
 
     % Create a rectangle matrix fulled by 1, 
 
-    cuttedImg_square = im2double(img(ymin+1:ymax, xmin+1:xmax, :));
+    cuttedImg_square = img(ymin+1:ymax, xmin+1:xmax, :);
 %     ref = ones(size(cuttedImg_square,1),size(cuttedImg_square,2),3);
 
     ref = ones(size(img,1),size(img,2),3);

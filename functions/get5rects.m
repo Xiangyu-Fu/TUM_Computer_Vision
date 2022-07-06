@@ -7,7 +7,7 @@
 % vanishing point (vx,vy) are also returned.
 function [big_im,vx,vy,lmargin,rmargin,tmargin,bmargin] = get5rects(app)
 
-im = app.selected_image_data;
+im = app.image_BG;
 vx = app.VanishingPoint(1);
 vy = app.VanishingPoint(2);
 irx = app.irx;
@@ -58,29 +58,29 @@ if (ceilry(1) < ceilry(2)),
 else
      ceilrx(2) = round(find_line_x(vx,vy,ceilrx(2),ceilry(2),ceilry(1)));
      ceilry(2) = ceilry(1);
-end;
+end
 
 % floor
 floorrx = [irx(4) irx(3) orx(3) orx(4)];
 floorry = [iry(4) iry(3) ory(3) ory(4)];
-if (floorry(3) > floorry(4)),
+if (floorry(3) > floorry(4))
      floorrx(3) = round(find_line_x(vx,vy,floorrx(3),floorry(3),floorry(4)));
      floorry(3) = floorry(4);
 else
      floorrx(4) = round(find_line_x(vx,vy,floorrx(4),floorry(4),floorry(3)));
      floorry(4) = floorry(3);
-end;
+end
 
 % left
 leftrx = [orx(1) irx(1) irx(4) orx(4)];
 leftry = [ory(1) iry(1) iry(4) ory(4)];
-if (leftrx(1) < leftrx(4)),
+if (leftrx(1) < leftrx(4))
      leftry(1) = round(find_line_y(vx,vy,leftrx(1),leftry(1),leftrx(4)));
      leftrx(1) = leftrx(4);
 else
      leftry(4) = round(find_line_y(vx,vy,leftrx(4),leftry(4),leftrx(1)));
      leftrx(4) = leftrx(1);
-end;
+end
 
 %%% Fix leftwall error begins
 
@@ -108,7 +108,7 @@ if (rightrx(2) > rightrx(3))
 else
      rightry(3) = round(find_line_y(vx,vy,rightrx(3),rightry(3),rightrx(2)));
      rightrx(3) = rightrx(2);
-end;
+end
 
 %%% fix rightwall error begins
 

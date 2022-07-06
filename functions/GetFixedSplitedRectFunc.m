@@ -1,6 +1,6 @@
 function GetFixedSplitedRectFunc(app)
-    app.NextStepButton_2.Visible = 'on';       
-    app.NextStepButton_2.Enable = 'on';
+    app.NextStepButton_3.Visible = 'on';       
+    app.NextStepButton_3.Enable = 'on';
     DrawLines(app);
     
     % get 5 rects and all 13 points (without VP)
