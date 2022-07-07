@@ -13,6 +13,8 @@ vy = app.VanishingPoint(2);
 irx = app.irx;
 iry = app.iry;
 
+
+
 % find where the line from VP thru inner rectangle hits the edge of image
 [ox,oy] = find_corner(vx,vy,irx(1),iry(1),0,0);
 orx(1) = ox;  ory(1) = oy;
@@ -36,6 +38,13 @@ big_im = zeros([ymax+tmargin+bmargin xmax+lmargin+rmargin cdepth]);
 big_im_alpha = zeros([size(big_im,1) size(big_im,2)]);
 big_im(tmargin+1:end-bmargin,lmargin+1:end-rmargin,:) = im2double(im);
 big_im_alpha(tmargin+1:end-bmargin,lmargin+1:end-rmargin) = 1;
+
+app.bim = big_im;
+
+app.lmargin = lmargin;
+app.rmargin = rmargin;
+app.tmargin = tmargin;
+app.bmargin = bmargin;
 
 
 % update all variables for the new image
