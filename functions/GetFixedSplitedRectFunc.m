@@ -22,8 +22,7 @@ function GetFixedSplitedRectFunc(app)
     
     app.UITable_2.Data = array2table(app.Vertex);
 
-
-%     % the front wall
+    % the front wall
     app.RearWall = splitTrapezoid (app.expandImage, p7, p8, p2, p1);  
 
     app.Ceil = splitTrapezoid (app.expandImage, p9, p10, p8, p7);
