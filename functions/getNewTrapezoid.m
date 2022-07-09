@@ -7,7 +7,7 @@ function result = getNewTrapezoid(img, p1, p2, p3, p4, p1_new, p2_new, p3_new, p
     xmax = size(img,2);
     ymax = size(img,1);
 
-    if (p1_new(1)+2*xmax)<(p3_new(1)+2*xmax)&&(p1_new(2)+2*ymax)<(p3_new(2)+2*ymax)
+    if (p1_new(1)+2*xmax)<=(p3_new(1)+2*xmax)&&(p1_new(2)+2*ymax)<=(p3_new(2)+2*ymax)
 
        % Create perspective transformation that warps the cutted rectangle (trapezoid)
        % coordinates to the traget shape (with 4 vertices).
