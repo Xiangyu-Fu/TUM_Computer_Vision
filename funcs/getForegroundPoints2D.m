@@ -20,7 +20,7 @@ function  getForegroundPoints2D(app)
     transFG_p4_3 = transFG_p4_3';
 
     if transFG_p1_3(3) >= 0
-        showforeground = flase;
+        showforeground = false;
     else
         showforeground = true;
     end
@@ -62,8 +62,8 @@ function  getForegroundPoints2D(app)
      else
         transFG_p1_2(1)=0;
         transFG_p1_2(2)=0;
-        transFG_p1_2(1)=0;
-        transFG_p1_2(2)=0;
+        transFG_p2_2(1)=0;
+        transFG_p2_2(2)=0;
         transFG_p3_2(1)=0;
         transFG_p3_2(2)=0;
         transFG_p4_2(1)=0;
