@@ -50,7 +50,7 @@ function K_trans = getTransMatrix(app, K)
 % K_trans: camera matrix after transformation in dimension 3x4
 % RT: rotation matrix ; displacement
     phi = app.phi;
-    theta = -app.theta;
+    theta = app.theta;
     x = app.x;
     y = app.y;
     z = app.z;
