@@ -1,11 +1,9 @@
 
 function get2DPoints(app)
 
-    [big_im,big_im_alpha,ceilrx,ceilry,floorrx,floorry,...
-    leftrx,leftry,rightrx,rightry,lmargin,rmargin,tmargin,bmargin] = ...
-    get5rects(app);
+    [big_im, lmargin, rmargin, tmargin, bmargin] = get5rects(app);
 
-    [app.y_limit, app.x_limit, channel] = size(big_im);
+    [app.y_limit, app.x_limit, ~] = size(big_im);
 
     app.lmargin = lmargin;
     app.rmargin = rmargin;
@@ -76,11 +74,9 @@ end
 
 
 
-function [big_im,big_im_alpha,ceilrx,ceilry,floorrx,floorry,...
-    leftrx,leftry,rightrx,rightry,lmargin,rmargin,tmargin,bmargin] = ...
-    get5rects(app)
+function [big_im ,lmargin,rmargin,tmargin,bmargin] = get5rects(app)
 
-    im = app.selected_image_data;
+    im = app.image_BG;
     vx = app.VP_raw(1);
     vy = app.VP_raw(2);
     irx = app.irx;

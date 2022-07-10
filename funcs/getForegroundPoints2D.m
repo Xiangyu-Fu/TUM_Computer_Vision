@@ -1,5 +1,5 @@
 
-function  FG_points_2d =  getForegroundPoints2D(app)
+function  getForegroundPoints2D(app)
 % getForegroundPoints2D.m uses getFg3D.m and the parameter app.K_trans
 % /////////////////////////////////////////////////////////////
 % FG_p1,FG_p2,FG_p3,FG_p4 Pixel coordinates of four Foreground points
@@ -20,14 +20,14 @@ function  FG_points_2d =  getForegroundPoints2D(app)
     transFG_p4_3 = transFG_p4_3';
 
     if transFG_p1_3(3) >= 0
-        app.showforeground = flase;
+        showforeground = flase;
     else
-        app.showforeground = true;
+        showforeground = true;
     end
 
 
-     if app.showforeground 
-        if trans(3) ~= 0
+     if showforeground 
+        if transFG_p1_3(3) ~= 0
             transFG_p1_2(1) = transFG_p1_3(1)/transFG_p1_3(3);
             transFG_p1_2(2) = transFG_p1_3(2)/transFG_p1_3(3);
         else
@@ -70,8 +70,8 @@ function  FG_points_2d =  getForegroundPoints2D(app)
         transFG_p4_2(2)=0;
      end
 
-        FG_points_2d = [transFG_p1_2, transFG_p2_2,transFG_p3_2,transFG_p4_2];
-        app.FG_points_2d = FG_points_2d;
+        FG_points_2d = [transFG_p1_2; transFG_p2_2; transFG_p3_2; transFG_p4_2];
+        app.FG_points_2d = round(FG_points_2d);
 
 
     
