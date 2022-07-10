@@ -7,6 +7,12 @@ function get2DPoints(app)
 
     [app.y_limit, app.x_limit, channel] = size(big_im);
 
+    app.lmargin = lmargin;
+    app.rmargin = rmargin;
+    app.tmargin = tmargin;
+    app.bmargin = bmargin;
+
+
     %%% app.rearwall contains [p1; p2; p7; p8]
     app.rearwall(:,1) = app.rearwall_raw(:,1) + lmargin;
     app.rearwall(:,2) = app.rearwall_raw(:,2) + tmargin;
