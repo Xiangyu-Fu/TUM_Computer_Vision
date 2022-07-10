@@ -45,16 +45,16 @@ function get2DPoints(app)
 
 
     %     %%% for test, don't delete, comment out if you don't need the
-    %     figure
-%     top_bottomPoints = [p9;p10;p3;p4];
-%     left_rightPoints = [p11;p12;p5;p6];
+
+%     top_bottomPoints = [app.points_2d(9,:); app.points_2d(10,:); app.points_2d(3,:); app.points_2d(4,:)];
+%     left_rightPoints = [app.points_2d(11,:); app.points_2d(12,:); app.points_2d(5,:); app.points_2d(6,:)];
 % 
 %     figure(1);
 %     imshow(big_im);
 % 
 %     hold on;
 % 
-%     plot(vx,vy,'w*');
+%     plot(app.VP(1), app.VP(2),'w*');
 %     plot([ceilrx ceilrx(1)], [ceilry ceilry(1)], 'y-');
 %     plot([floorrx floorrx(1)], [floorry floorry(1)], 'm-');
 %     plot([leftrx leftrx(1)], [leftry leftry(1)], 'c-');
