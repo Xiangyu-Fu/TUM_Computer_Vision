@@ -4,7 +4,7 @@ function get3DPoints(app)
 
     eyep = [VP(1), VP(2), 0];
 
-    app.points_3d = zeros(15,3);
+    app.points_3d = zeros(14,3);
     
 
     for i = 1:6
@@ -18,7 +18,7 @@ function get3DPoints(app)
     height = ( points_2d_recoord(7,2) - points_2d_recoord(1,2) ) /  (-1) * ( app.points_3d(1,3) );
 
     app.points_3d(7,1) = app.points_3d(1,1);
-    app.points_3d(8,1) = height - 1;
+    app.points_3d(8,1) = app.points_3d(2,1);
     app.points_3d(8,2) = height - 1;
     app.points_3d(7,2) = height - 1;
     app.points_3d(7,3) = app.points_3d(1,3);
@@ -47,7 +47,7 @@ function [points_2d_recoord,VP] = recoord(app)
     points_2d_recoord = zeros(13,2);
 
     points_2d_recoord(:,1) = (app.points_2d(:,1) - app.VP(1)) / app.x_limit;
-    points_2d_recoord(:,2) = (app.points_2d(:,2) - app.VP(2)) / app.y_limit;
+    points_2d_recoord(:,2) = - (app.points_2d(:,2) - app.VP(2)) / app.y_limit;
 
     VP = [0,0];
 
