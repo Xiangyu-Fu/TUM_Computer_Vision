@@ -20,13 +20,13 @@ function  getForegroundPoints2D(app)
     transFG_p4_3 = transFG_p4_3';
 
     if transFG_p1_3(3) >= 0
-        showforeground = false;
+        app.showforeground = false;
     else
-        showforeground = true;
+        app.showforeground = true;
     end
 
 
-     if showforeground 
+%      if showforeground 
         if transFG_p1_3(3) ~= 0
             transFG_p1_2(1) = transFG_p1_3(1)/transFG_p1_3(3);
             transFG_p1_2(2) = transFG_p1_3(2)/transFG_p1_3(3);
@@ -59,16 +59,16 @@ function  getForegroundPoints2D(app)
             transFG_p4_2(2) = transFG_p4_3(2)/0.01;
         end
 
-     else
-        transFG_p1_2(1)=0;
-        transFG_p1_2(2)=0;
-        transFG_p2_2(1)=0;
-        transFG_p2_2(2)=0;
-        transFG_p3_2(1)=0;
-        transFG_p3_2(2)=0;
-        transFG_p4_2(1)=0;
-        transFG_p4_2(2)=0;
-     end
+%      else
+%         transFG_p1_2(1)=0;
+%         transFG_p1_2(2)=0;
+%         transFG_p2_2(1)=0;
+%         transFG_p2_2(2)=0;
+%         transFG_p3_2(1)=0;
+%         transFG_p3_2(2)=0;
+%         transFG_p4_2(1)=0;
+%         transFG_p4_2(2)=0;
+%      end
 
         FG_points_2d = [transFG_p1_2; transFG_p2_2; transFG_p3_2; transFG_p4_2];
         app.FG_points_2d = round(FG_points_2d);
