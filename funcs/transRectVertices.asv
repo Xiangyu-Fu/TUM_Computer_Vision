@@ -15,9 +15,7 @@ function [transRectVerticesCoord_pix, transRectVerticesCoord_pix_judge] = transR
             points_3d(i,3)-z+tan(theta)*(x-points_3d(i,1))-tan(phi)*(y-points_3d(i,2))];
         end
      else
-        transRectVerticesCoord_3d = points_3d;
-     end
-     
+
 
     transRectVerticesCoord_homo = zeros(12,3);
     transRectVerticesCoord_pix = zeros(12,2);
