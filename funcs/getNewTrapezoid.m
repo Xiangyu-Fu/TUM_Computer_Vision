@@ -1,4 +1,6 @@
-function result = getNewTrapezoid(cases, img, p1, p2, p3, p4, p1_new, p2_new, p3_new, p4_new, judgePts1, judgePts2)
+function result = getNewTrapezoid(cases, img, p1, p2, p3, p4, p1_new, p2_new, p3_new, p4_new, judgePts1, judgePts2, judgePts3, judgePts4)
+    % cases: 'fc' floor and ceil, 'lr' left and right wall, 'f' rearwall
+    %           and foreground.
     % Upper left: p1
     % Upper right: p2
     % Lower right: p3
@@ -11,7 +13,7 @@ function result = getNewTrapezoid(cases, img, p1, p2, p3, p4, p1_new, p2_new, p3
 
     switch cases
         case 'fc'
-            if (judgePts1(2)+ymax)<(judgePts2(2)+ymax)
+            if (judgePts1(2)+ymax)<(judgePts3(2)+ymax)||(judgePts2(2)+ymax)<(judgePts4(2)+ymax)
                 % Create perspective transformation that warps the cutted rectangle (trapezoid)
                 % coordinates to the traget shape (with 4 vertices).
         
@@ -31,7 +33,7 @@ function result = getNewTrapezoid(cases, img, p1, p2, p3, p4, p1_new, p2_new, p3
                 result = zeros(ymax,xmax,3);
             end
         case 'lr'
-            if (judgePts1(1)+xmax)<(judgePts2(1)+xmax)
+            if (judgePts1(1)+xmax)<(judgePts3(1)+xmax)||(judgePts4(1)+xmax)<(judgePts2(1)+xmax)
                 % Create perspective transformation that warps the cutted rectangle (trapezoid)
                 % coordinates to the traget shape (with 4 vertices).
         

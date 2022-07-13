@@ -1,9 +1,8 @@
-function [cameraMatrix, K_trans, trans_points_3d, trans_points_2d] = ...
-    getTransCoordinates2D_app(app)
+function getTransCoordinates2D(app)
 
     cameraMatrix = getKaliMatrix(app);
     K_trans = getTransMatrix(app, cameraMatrix);
-    [trans_points_3d, trans_points_2d] = transPointCoordinates(K_trans, app);
+    transPointCoordinates(K_trans, app);
 
  
 function cameraMatrix = getKaliMatrix(app)    

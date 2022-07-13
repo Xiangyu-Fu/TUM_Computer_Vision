@@ -21,6 +21,8 @@ function [transRectVerticesCoord_pix, transRectVerticesCoord_pix_judge] = transR
 
     transRectVerticesCoord_homo = zeros(12,3);
     transRectVerticesCoord_pix = zeros(12,2);
+    transRectVerticesCoord_homo_judge = zeros(12,3);
+    transRectVerticesCoord_pix_judge = zeros(12,2);
 
     for i = 1:12
         transRectVerticesCoord_homo(i,:) = (CameraMatrix * [transRectVerticesCoord_3d(i,:)';1])';
