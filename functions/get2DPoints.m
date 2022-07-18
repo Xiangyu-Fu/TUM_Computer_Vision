@@ -1,10 +1,17 @@
 
 function get2DPoints(app)
+    % get2DPoints.m calculates the 2D coordinates of 13 points
+    % Inputs:
+    % user selected vanishing point and 4 points at the ear wall
+
+    % Outputs:
+    % app.points_2d: 13*2 matrix, contains 2D coordinates of 13 points 
 
     [big_im, lmargin, rmargin, tmargin, bmargin] = get5rects(app);
 
     [app.y_limit, app.x_limit, ~] = size(big_im);
 
+    % get 4 border length
     app.lmargin = lmargin;
     app.rmargin = rmargin;
     app.tmargin = tmargin;
@@ -22,6 +29,7 @@ function get2DPoints(app)
     app.points_2d(8,:) = app.rearwall(4,:);
 
 
+    % calculate the 12 points 2D coordinates based on the 5 wall structure
     app.points_2d(10,2) = tmargin;
     app.points_2d(10,1) = round(find_line_x(app.VP(1),app.VP(2),app.points_2d(8,1),app.points_2d(8,2), app.points_2d(10,2) ));
 

@@ -1,12 +1,19 @@
 function get3DPoints(app)
+    % get3DPoints.m calculates the 3D coordinates of 13 points
+    % Inputs:
+    % 2D coordinates of 13 points
+
+    % Outputs:
+    % app.points_3d: 14*3 matrix, contains 2D coordinates of 13 points and
+    % view point
 
     [points_2d_recoord,VP] = recoord(app);
 
     eyep = [VP(1), VP(2), 0];
 
-    app.points_3d = zeros(14,3);
+    app.points_3d = zeros(14,3); % set 3D coordinates of view point to [0 0 0]
     
-
+    
     for i = 1:6
 
         app.points_3d(i,:) = trans_p1_6(points_2d_recoord(i,:), eyep);
@@ -37,10 +44,6 @@ function get3DPoints(app)
 end
 
 
-
-
-
-
 function [points_2d_recoord,VP] = recoord(app)
 
     %%% recoordinate, now rearwall is at (0,0)
@@ -54,6 +57,7 @@ function [points_2d_recoord,VP] = recoord(app)
 end
 
 function p_3d = trans_p1_6(p, eyep)
+    % calculate the 6 points at the floor
 
     p_3d = [0 0 0];
 
@@ -66,7 +70,7 @@ function p_3d = trans_p1_6(p, eyep)
 end
 
 function p_3d = trans_p9_12(p, eyep, height)
-
+    % calculate the 6 points at the ceil
     p_3d = [0 0 0];
     
     grad = ( height - eyep(2) -1 ) / ( p(2) - eyep(2) );
