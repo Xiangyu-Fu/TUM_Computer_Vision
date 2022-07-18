@@ -1,5 +1,6 @@
 function getTransCoordinates2D(app)
-
+% calculate pixel coordinates of vertices after transformation
+% used to stretch image
     cameraMatrix = getKaliMatrix(app);
     K_trans = getTransMatrix(app, cameraMatrix);
     transPointCoordinates(K_trans, app);
@@ -74,156 +75,22 @@ function [trans_points_3d, trans_points_2d] =  transPointCoordinates(K_trans, ap
 %             dimension 1x3
 % trans..._2: Devide the third component of homogenous coordinates;
 %             dimension 1x2
-
-    transVP_3 = K_trans * [app.points_3d(13, :)';1];
-    transVP_3 = transVP_3';
-    if transVP_3(3) ~= 0
-        transVP_2(1) = transVP_3(1)/transVP_3(3);
-        transVP_2(2) = transVP_3(2)/transVP_3(3);
-    else
-        transVP_2(1) = transVP_3(1)/0.01;
-        transVP_2(2) = transVP_3(2)/0.01;
+    
+    trans_points_3d = zeros(13,3);
+    trans_points_2d = zeros(13,2);
+    for i = 1:13
+        % homogeneous coordinates
+        trans_points_3d(i,:) = K_trans * [app.points_3d(i, :)';1];
+        % homogeneous coordinates to pixel coordinates
+        if trans_points_3d(i,3) ~= 0
+            trans_points_2d(i,1) = trans_points_3d(i,1)/trans_points_3d(i,3);
+            trans_points_2d(i,2) = trans_points_3d(i,2)/trans_points_3d(i,3);
+        else
+            trans_points_2d(i,1) = trans_points_3d(i,1)/0.01;
+            trans_points_2d(i,2) = trans_points_3d(i,1)/0.01;
+        end
     end
-    
-    transP1_3 = K_trans * [app.points_3d(1, :)';1];
-    transP1_3 = transP1_3';
- 
-    if transP1_3(3) ~= 0
-        transP1_2(1) = transP1_3(1)/transP1_3(3);
-        transP1_2(2) = transP1_3(2)/transP1_3(3);
-    else
-        transP1_2(1) = transP1_3(1)/0.01;
-        transP1_2(2) = transP1_3(2)/0.01;
-    end
-
-    
-    transP2_3 = K_trans * [app.points_3d(2, :)';1];
-    transP2_3 = transP2_3';
-    
-    if transP2_3(3) ~= 0
-        transP2_2(1) = transP2_3(1)/transP2_3(3);
-        transP2_2(2) = transP2_3(2)/transP2_3(3);
-    else
-        transP2_2(1) = transP2_3(1)/0.01;
-        transP2_2(2) = transP2_3(2)/0.01;
-    end
-    
-    transP3_3 = K_trans * [app.points_3d(3, :)';1];
-    transP3_3 = transP3_3';
-    
-    if transP3_3(3) ~= 0
-        transP3_2(1) = transP3_3(1)/transP3_3(3);
-        transP3_2(2) = transP3_3(2)/transP3_3(3);
-    else
-        transP3_2(1) = transP3_3(1)/0.01;
-        transP3_2(2) = transP3_3(2)/0.01;
-    end
-    
-    transP4_3 = K_trans * [app.points_3d(4, :)';1];
-    transP4_3 = transP4_3';
-    
-    if transP4_3(3) ~= 0
-        transP4_2(1) = transP4_3(1)/transP4_3(3);
-        transP4_2(2) = transP4_3(2)/transP4_3(3);
-    else
-        transP4_2(1) = transP4_3(1)/0.01;
-        transP4_2(2) = transP4_3(2)/0.01;
-    end
-    
-    transP5_3 = K_trans * [app.points_3d(5, :)';1];
-    transP5_3 = transP5_3';
-    
-    if transP5_3(3) ~= 0
-        transP5_2(1) = transP5_3(1)/transP5_3(3);
-        transP5_2(2) = transP5_3(2)/transP5_3(3);
-    else
-        transP5_2(1) = transP5_3(1)/0.01;
-        transP5_2(2) = transP5_3(2)/0.01;
-    end
-    
-    transP6_3 = K_trans * [app.points_3d(6, :)';1];
-    transP6_3 = transP6_3';
-    
-    if transP6_3(3) ~= 0
-        transP6_2(1) = transP6_3(1)/transP6_3(3);
-        transP6_2(2) = transP6_3(2)/transP6_3(3);
-    else
-        transP6_2(1) = transP6_3(1)/0.01;
-        transP6_2(2) = transP6_3(2)/0.01;
-    end
-    
-    transP7_3 = K_trans * [app.points_3d(7, :)';1];
-    transP7_3 = transP7_3';
-    
-    if transP7_3(3) ~= 0
-        transP7_2(1) = transP7_3(1)/transP7_3(3);
-        transP7_2(2) = transP7_3(2)/transP7_3(3);
-    else
-        transP7_2(1) = transP7_3(1)/0.01;
-        transP7_2(2) = transP7_3(2)/0.01;
-    end
-    
-    transP8_3 = K_trans * [app.points_3d(8, :)';1];
-    transP8_3 = transP8_3';
    
-    if transP8_3(3) ~= 0
-        transP8_2(1) = transP8_3(1)/transP8_3(3);
-        transP8_2(2) = transP8_3(2)/transP8_3(3);
-    else
-        transP8_2(1) = transP8_3(1)/0.01;
-        transP8_2(2) = transP8_3(2)/0.01;
-    end
-    
-    transP9_3 = K_trans * [app.points_3d(9, :)';1];
-    transP9_3 = transP9_3';
-    
-    if transP9_3(3) ~= 0
-        transP9_2(1) = transP9_3(1)/transP9_3(3);
-        transP9_2(2) = transP9_3(2)/transP9_3(3);
-    else
-        transP9_2(1) = transP9_3(1)/0.01;
-        transP9_2(2) = transP9_3(2)/0.01;
-    end
-    
-    transP10_3 = K_trans * [app.points_3d(10, :)';1];
-    transP10_3 = transP10_3';
-    
-    if transP10_3(3) ~= 0
-        transP10_2(1) = transP10_3(1)/transP10_3(3);
-        transP10_2(2) = transP10_3(2)/transP10_3(3);
-    else
-        transP10_2(1) = transP10_3(1)/0.01;
-        transP10_2(2) = transP10_3(2)/0.01;
-    end
-    
-    transP11_3 = K_trans * [app.points_3d(11, :)';1];
-    transP11_3 = transP11_3';
-    
-    if transP11_3(3) ~= 0
-        transP11_2(1) = transP11_3(1)/transP11_3(3);
-        transP11_2(2) = transP11_3(2)/transP11_3(3);
-    else
-        transP11_2(1) = transP11_3(1)/0.01;
-        transP11_2(2) = transP11_3(2)/0.01;
-    end
-    
-    transP12_3 = K_trans * [app.points_3d(12, :)';1];
-    transP12_3 = transP12_3';
-    
-    if transP12_3(3) ~= 0
-        transP12_2(1) = transP12_3(1)/transP12_3(3);
-        transP12_2(2) = transP12_3(2)/transP12_3(3);
-    else
-        transP12_2(1) = transP12_3(1)/0.01;
-        transP12_2(2) = transP12_3(2)/0.01;
-    end
-    
-    trans_points_3d = [transP1_3;transP2_3;transP3_3;transP4_3;...
-                       transP5_3;transP6_3;transP7_3;transP8_3;...
-                       transP9_3;transP10_3;transP11_3;transP12_3;transVP_3];
-    trans_points_2d = [transP1_2;transP2_2;transP3_2;transP4_2;...
-                       transP5_2;transP6_2;transP7_2;transP8_2;...
-                       transP9_2;transP10_2;transP11_2;transP12_2;transVP_2];
     app.trans_points_3d = trans_points_3d;
     app.trans_points_2d = trans_points_2d;
     
