@@ -1,12 +1,18 @@
 function result = getNewTrapezoid(cases, img, p1, p2, p3, p4, p1_new, p2_new, p3_new, p4_new, judgePts1, judgePts2, judgePts3, judgePts4)
+    % getNewTrapezoid.m Convert a trapezoid image to a specified shape
+    % Inputs:
     % cases: 'fc' floor and ceil, 'lr' left and right wall, 'f' rearwall
-    %           and foreground.
-    % Upper left: p1
-    % Upper right: p2
-    % Lower right: p3
-    % Lower left: p4
-    % judgePts1: pixel coordinates in image plain, upper left.
-    % judgePts2: pixel coordinates in image plain, lower right.
+    % and foreground.
+    % img: Image to be converted
+    % Upper left point: p1
+    % Upper right point: p2
+    % Lower right point: p3
+    % Lower left point: p4
+    % judgePts1 point: pixel coordinates in image plain, upper left.
+    % judgePts2 point: pixel coordinates in image plain, lower right.
+
+    % Outputs:
+    % result: A matrix with the target shape of the same size as the original image
 
     xmax = size(img,2);
     ymax = size(img,1);

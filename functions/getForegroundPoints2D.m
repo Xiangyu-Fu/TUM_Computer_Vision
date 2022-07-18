@@ -8,7 +8,6 @@ function  FG_points_2d = getForegroundPoints2D(app, FG_3d)
 % app.FG_points_2d: Devide the third component of homogenous coordinates;
 %                   Dimension: 4x2
 
-%[FG_p1_3d,FG_p2_3d,FG_p3_3d,FG_p4_3d] = foreground_3D(app); % get Foreround points 3D coordinates
 
 
     transFG_p1_3 = app.K_trans * [FG_3d(1,:)';1];
