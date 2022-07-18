@@ -30,9 +30,9 @@ Here is a exmaple of our project,
 ![cover](https://user-images.githubusercontent.com/54738414/179618055-30bd906c-3b9b-4ab3-862b-0db71db1aab5.png)
 
 
-> :computer: : should work both for **WINDOWS** and **MAC**
+> :computer: : work both for **Windows 11** and **macOS Monterey**
 >
-> :rocket: MATLAB Version: at least **MATLAB R2022b**
+> :rocket: MATLAB Version: at least **MATLAB R2022b** and Toolbox **Image Processing Toolbox** must be installed
 > 
 > :keyboard: GUI develop kit: **APP designer**
 ---
