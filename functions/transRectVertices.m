@@ -1,4 +1,6 @@
 function [transRectVerticesCoord_pix, transRectVerticesCoord_pix_judge] = transRectVertices(app)
+% calculate pixel coordinates of new vertices after transformation
+
     points_3d = app.points_3d;
     CameraMatrix = app.CameraMatrix;
     x = app.x;
@@ -9,6 +11,7 @@ function [transRectVerticesCoord_pix, transRectVerticesCoord_pix_judge] = transR
     K_trans = app.K_trans;
     transRectVerticesCoord_3d = zeros(12,3);
 
+     % transformation geometry
      if z>=0
         for i = 1:12
             transRectVerticesCoord_3d(i,:) = [points_3d(i,1), points_3d(i,2),...
